@@ -1,7 +1,7 @@
 %define module	encoding-warnings
 %define name	perl-%{module}
-%define version	0.10
-%define	release	%mkrel 4
+%define version	0.11
+%define	release	%mkrel 1
 
 Name:		%{name}
 Version:	%{version}
@@ -9,7 +9,7 @@ Release:	%{release}
 Summary:	Warn on implicit encoding conversions
 License:	GPL or Artistic
 Group:		Development/Perl
-Source0:	%{module}-%{version}.tar.bz2
+Source0:    http://search.cpan.org/CPAN/authors/id/A/AU/AUDREYT/%{module}-%{version}.tar.gz
 Url:		http://search.cpan.org/dist/%{module}
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
