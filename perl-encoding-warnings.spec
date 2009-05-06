@@ -14,6 +14,7 @@ Url:		http://search.cpan.org/dist/%{module}
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	perl-devel
+Provides:   perl(encoding::warnings)
 
 %description
 This perl pragma emits warnings whenever an ASCII character string
