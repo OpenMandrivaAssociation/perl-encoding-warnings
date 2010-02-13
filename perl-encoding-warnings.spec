@@ -1,19 +1,19 @@
-%define module	encoding-warnings
-%define name	perl-%{module}
-%define version	0.11
-%define	release	%mkrel 1
+%define upstream_name	 encoding-warnings
+%define upstream_version 0.11
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Warn on implicit encoding conversions
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source0:    http://search.cpan.org/CPAN/authors/id/A/AU/AUDREYT/%{module}-%{version}.tar.gz
-Url:		http://search.cpan.org/dist/%{module}
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://search.cpan.org/CPAN/authors/id/A/AU/AUDREYT/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	perl-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
+
 Provides:   perl(encoding::warnings)
 
 %description
@@ -22,14 +22,14 @@ containing high-bit bytes is implicitly converted into UTF-8. It
 is useful when working with mixed encoding strings.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-%__make test
+%make test
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -43,4 +43,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc Changes README
 %{perl_vendorlib}/encoding/*
 %{_mandir}/*/*
-
