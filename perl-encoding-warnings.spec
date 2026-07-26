@@ -1,15 +1,13 @@
 %define upstream_name	 encoding-warnings
-%define upstream_version 0.11
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	0.11
+Release:	5
 
 Summary:	Warn on implicit encoding conversions
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/A/AU/AUDREYT/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/A/AU/AUDREYT/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -22,7 +20,7 @@ containing high-bit bytes is implicitly converted into UTF-8. It
 is useful when working with mixed encoding strings.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -43,9 +41,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %changelog
 * Sat Feb 13 2010 Jérôme Quelin <jquelin@mandriva.org> 0.110.0-1mdv2010.1
 + Revision: 505339
-- rebuild using %%perl_convert_version
-
-* Wed May 06 2009 Jérôme Quelin <jquelin@mandriva.org> 0.11-1mdv2010.0
+- rebuild using %0.11 Wed May 06 2009 Jérôme Quelin <jquelin@mandriva.org> 0.11-1mdv2010.0
 + Revision: 372675
 - adding explicit provides, lowercase provides not automatically extracted - sigh
 - update to 0.11
